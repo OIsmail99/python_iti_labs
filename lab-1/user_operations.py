@@ -1,4 +1,11 @@
 import json
+import user_validations
+#import project_operations
+
+def getLoggedInUser()->dict:
+    with open("loggedInUser.json", 'r') as loggedInUsersFile:
+        read = json.loads(loggedInUsersFile.read())
+        return read
 
 
 def getUserByEmail(email:str):
@@ -31,10 +38,12 @@ def addUser(firstName:str, lastName:str, email:str, password:str, phone:str):
 
 
 
-
-
-
 def addLoggedInUser(user:dict):
     LoggedInUser = user
     with open("loggedInUser.json", 'w') as loggedInUsersFile:
         loggedInUsersFile.write(json.dumps(LoggedInUser))
+
+
+
+
+

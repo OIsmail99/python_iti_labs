@@ -1,8 +1,1 @@
-{
-  "id": 2,
-  "firstName": "Mohammed",
-  "lastName": "Ismail",
-  "email": "mo@gmail.com",
-  "password": "12345",
-  "phone": "12345345"
-}
+{"id": 2, "firstName": "Mohammed", "lastName": "Ismail", "email": "mo@gmail.com", "password": "12345", "phone": "12345345"}
