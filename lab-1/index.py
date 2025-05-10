@@ -84,20 +84,27 @@ def loginMenu():
     while(not isValidEmail):
         try:
             email = input("Please Enter Email: ")
-            user_validations.isExistingEmail(email)
-            isValidEmail = True
+            if(user_validations.isExistingEmail(email)):
+                isValidEmail = True
+            else:
+                raise ValueError("Email Not Found")
         except ValueError as e:
             print(e)
     
     
     isValidPassword = False
     while(not isValidPassword):
-        password = input("Please Enter Password: ")
-        if(user_validations.isExistingUser(email, password)):
-            isValidPassword = True
+        try:
+            password = input("Please Enter Password: ")
+            if(user_validations.isExistingPassword(password)):
+                isValidPassword = True
+            else:
+                raise ValueError("Invalid Password")
+        except ValueError as e:
+            print(e)
 
     print("Login Successful")
-    user_opeartions.addLoggedInUser(email, password)
+    user_opeartions.addLoggedInUser(user_opeartions.getUserByEmail(email))
      
 
 
