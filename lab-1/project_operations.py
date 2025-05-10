@@ -4,9 +4,12 @@ import json
 def viewAllProjects():
     with open("projects.json", 'r') as projectsFile:
         projects = json.loads(projectsFile.read())
+        i = 0
         for project in projects:
+            i = i + 1
+            print("------------------------------------------------")
+            print(f"project number: {i}")
             print(f"Title: {project['title']}, Description: {project['description']}, Total Target: {project['total_target']}, Start Date: {project['start_date']}, End Date: {project['end_date']}")
-    pass
 
 
 
