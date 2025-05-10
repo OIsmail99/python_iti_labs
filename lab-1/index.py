@@ -72,10 +72,11 @@ def registerMenu():
             print(e)
 
     user_operations.addUser(firstName, lastName, email, password, phone)
-    mainMenu()
 
 
 def loginMenu():
+    isLoggedIn = False
+
     isValidEmail = False
     while(not isValidEmail):
         try:
@@ -101,7 +102,9 @@ def loginMenu():
 
     print("Login Successful")
     user_operations.addLoggedInUser(user_operations.getUserByEmail(email))
-    projectMenu()
+    isLoggedIn = True
+    return isLoggedIn
+    
 
 
 
@@ -161,7 +164,6 @@ def addProjectMenu():
     print("project added successfully")
 
 
-
     
 
 
@@ -207,15 +209,45 @@ def mainMenu(message:str=""):
     route("mainMenu", choice)
 
 
+def deleteProjectMenu():
+    print("your projects: ")
+    print(project_operations.viewUserProjects(user_operations.getLoggedInUser()['id']))
+    isDeleted = False
+    while(not isDeleted):
+        try:
+            id = int(input("Enter the id of the project you want to delete: "))
+            deleted = project_operations.deleteUserProject(user_operations.getLoggedInUser()['id'], id)
+            if(not deleted):
+                raise Exception("project not found!")
+            isDeleted = True
+        except Exception as e:
+            print(e)
+
+
 def route(lastPoint:str, choice:int):
     if(lastPoint == "mainMenu"):
-        if(choice == 1): registerMenu()
-        if(choice == 2): loginMenu()
+        if(choice == 1): 
+            registerMenu()
+            mainMenu()
+
+        if(choice == 2): 
+            if(loginMenu()):
+                projectMenu() 
+            else: 
+                mainMenu()
     if(lastPoint == "projectMenu"):
-        if(choice == 1): project_operations.viewAllProjects()
-        if(choice == 2): addProjectMenu()
+        if(choice == 1): 
+            project_operations.viewAllProjects()
+            print("--------------------------------")
+            projectMenu()
+        if(choice == 2): 
+            addProjectMenu()
+            print("-----------------------------------")
+            projectMenu()
         # if(choice == 3): project_operations.updateProject()
-        # if(choice == 4): project_operations.deleteProject()
+        if(choice == 4): 
+            deleteProjectMenu()
+            projectMenu()
         if(choice == 5): user_operations.mainMenu("Exiting...")
     
         

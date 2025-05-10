@@ -1,18 +1,1 @@
-[
-  {
-    "user_id": 2,
-    "title": "my new title",
-    "description": "my new description",
-    "total_target": 15000,
-    "start_date": "2025-06-10",
-    "end_date": "2025-06-15"
-  },
-  {
-    "user_id": 2,
-    "title": "new title",
-    "description": "a very new desc",
-    "total_target": 15000,
-    "start_date": "2025-06-03",
-    "end_date": "2025-07-03"
-  }
-]
+[{"id": 1, "user_id": 2, "title": "my new title", "description": "my new description", "total_target": 15000, "start_date": "2025-06-10", "end_date": "2025-06-15"}]
