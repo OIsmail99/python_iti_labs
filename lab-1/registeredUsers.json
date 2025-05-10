@@ -1,1 +1,31 @@
-[{ "name": "osama" }]
+[
+  {
+    "firstName": "Osama",
+    "lastName": "Ismail",
+    "email": "osama@gmail.com",
+    "password": "123456879",
+    "phone": "012345678"
+  },
+  {
+    "firstName": "Mohammed",
+    "lastName": "Ismail",
+    "email": "mo@gmail.com",
+    "password": "12345",
+    "phone": "12345345"
+  },
+  {
+    "firstName": "osama",
+    "lastName": "mohammed",
+    "email": "o@gmail.com",
+    "password": "password!23",
+    "phone": "01019521914"
+  },
+  {
+    "id": 4,
+    "firstName": "mo",
+    "lastName": "hamed",
+    "email": "mo@mo.com",
+    "password": "!2345678",
+    "phone": "01229521914"
+  }
+]
